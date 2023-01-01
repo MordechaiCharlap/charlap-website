@@ -6,7 +6,6 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Nav from "../components/nav/Nav";
 import Portfolio from "../components/portfolio/Portfolio";
-import "./app.css";
 const App = () => {
   return (
     <div className="websiteLayout">
