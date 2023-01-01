@@ -19,9 +19,9 @@
   --color-secondar-variant: #905ad3;
   --color-on-secondary: #130e18;
   --color-white: #ffffff;
-  --color-light: rgb(255,255,255,0.6)
+  --color-light: rgb(255,255,255,0.6);
 
---transition: all 400ms ease
+  --transition: all 400ms ease;
 
   --container-width-lg:75%
   --container-width-md:86%
