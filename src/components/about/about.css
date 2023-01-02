@@ -20,3 +20,16 @@
 article {
   text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+  .about__me-image {
+    width: 15rem;
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+  .about__cards {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem;
+  }
+}
