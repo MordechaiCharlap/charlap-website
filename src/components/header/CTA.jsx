@@ -1,15 +1,13 @@
 import React from "react";
+import "./header.css";
 
 const CTA = () => {
-  const margin = {
-    margin: "0.5rem",
-  };
   return (
-    <div>
-      <a href="https://google.com" className="btn" style={margin}>
+    <div className="cta">
+      <a href="https://google.com" className="btn">
         Download CV
       </a>
-      <a href="https://google.com" className="btn btn-primary" style={margin}>
+      <a href="https://google.com" className="btn btn-primary">
         Let's Talk
       </a>
     </div>
