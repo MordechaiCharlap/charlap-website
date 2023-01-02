@@ -39,12 +39,12 @@ header {
 
 /*====================Me====================*/
 .me {
-  background: red;
   width: 22rem;
+  height: 30rem;
+  position: absolute;
   margin-top: 4rem;
   border-radius: 12rem 12rem 0 0;
-  margin-left: auto;
-  margin-right: auto;
+  left: calc(50% - 11rem);
   overflow: hidden;
 }
 
@@ -60,14 +60,18 @@ header {
 
 /*====================Media queries (md)====================*/
 @media screen and (max-width: 1024px) {
-  /* header {
-    width: 30vh;
-  } */
+  header {
+    height: 80vh;
+  }
 }
 
 /*====================Media queries (sm)====================*/
 @media screen and (max-width: 600px) {
-  /* header {
-    width: 30vh;
-  } */
+  header {
+    height: 100vh;
+  }
+  .header__socials,
+  .scroll__down {
+    display: none;
+  }
 }
