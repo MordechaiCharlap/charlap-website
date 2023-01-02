@@ -11,9 +11,8 @@ const Header = () => {
         <h1>Moti Charlap</h1>
         <h5>Fullstack Developer</h5>
         <CTA />
-
-        <div>
-          <img src={ME} alt="Just me" className="me" />
+        <div className="me">
+          <img src={ME} alt="Just me" />
         </div>
 
         <a href="#contact" className="scroll__down">
