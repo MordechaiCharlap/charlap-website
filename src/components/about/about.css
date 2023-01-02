@@ -1,0 +1,22 @@
+.about__container {
+  display: flex;
+}
+
+.about__me-image {
+  width: 20rem;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.about__content {
+  flex-grow: 1;
+}
+
+.about__cards {
+  display: flex;
+  padding: 1rem;
+}
+
+article {
+  text-align: center;
+}
