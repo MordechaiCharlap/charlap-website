@@ -6,13 +6,13 @@ import "./header.css";
 const HeaderSocials = () => {
   return (
     <div className="header__socials">
-      <a>
+      <a href="https://www.linkedin.com/in/moti-charlap-a27470200/">
         <BsLinkedin />
       </a>
-      <a>
+      <a href="https://github.com/MordechaiCharlap">
         <FaGithub />
       </a>
-      <a>
+      <a href="mailto:les@mordechai.cha@gmail.com">
         <SiGmail />
       </a>
     </div>
