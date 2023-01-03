@@ -7,7 +7,8 @@ const Skills = () => {
       "Firebase",
       "React",
       "React Native",
-      "HTML/CSS",
+      "HTML",
+      "CSS",
       "C#",
       "Github",
       "SQL",
@@ -25,7 +26,7 @@ const Skills = () => {
     return <div className="skill__cards">{skillCards}</div>;
   };
   return (
-    <div className="skills__container">
+    <div className="skills__container container">
       <h2>My Skills</h2>
       {getSkills()}
     </div>
