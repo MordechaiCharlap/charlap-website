@@ -1,8 +1,29 @@
+#contact {
+  background: var(--color-secondary);
+  padding-bottom: 5rem;
+}
+
 .contact__title {
   text-align: center;
   margin-bottom: 5rem;
 }
-
 .contact__title > h1 {
-  color: var(--color-primary);
+  color: black;
+}
+
+.contact__form__container {
+  border-radius: 0.5rem;
+  margin: auto;
+  background: var(--color-bg);
+  padding: 2rem;
+  width: 90%;
+}
+
+.contact__form__container > input {
+}
+
+@media screen and (max-width: 600px) {
+  .contact__form__container {
+    width: 90%;
+  }
 }
