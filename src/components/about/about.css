@@ -1,4 +1,5 @@
-.about__container {
+.about__and__skills {
+  display: flex;
 }
 
 .about__content {
@@ -46,5 +47,15 @@
   background: var(--color-light);
 }
 
+.skill__card > h4 {
+  font-weight: 400;
+}
+
 @media screen and (max-width: 600px) {
+  .about__and__skills {
+    display: block;
+  }
+  .skills__container {
+    margin-top: 2rem;
+  }
 }
