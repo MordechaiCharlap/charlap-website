@@ -40,7 +40,9 @@ const About = () => {
       <div className="about__and__skills">
         <div className="about__container">
           {aboutContent}
-          <a className="btn">Contact</a>
+          <a className="btn" href="#contact">
+            Contact
+          </a>
         </div>
         <Skills />
       </div>
