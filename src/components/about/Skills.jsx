@@ -13,6 +13,7 @@ const Skills = () => {
       "Github",
       "SQL",
       "Photoshop",
+      "Responsive Design",
     ];
     const skillCards = [];
     for (var skillValue of skills) {
@@ -26,7 +27,7 @@ const Skills = () => {
     return <div className="skill__cards">{skillCards}</div>;
   };
   return (
-    <div className="skills__container container">
+    <div className="skills__container">
       <h2>My Skills</h2>
       {getSkills()}
     </div>
