@@ -1,5 +1,6 @@
 .about__and__skills {
   display: flex;
+  gap: 2rem;
 }
 
 .about__content {
@@ -43,7 +44,9 @@
 
 .skill__card {
   padding: 0.3rem 0.5rem;
+  flex-grow: 1;
   border-radius: 0.3rem;
+  text-align: center;
   background: var(--color-light);
 }
 
