@@ -2,6 +2,7 @@ import React from "react";
 import "./about.css";
 import Me from "../../assets/robot-guy.png";
 import { FaAward } from "react-icons/fa";
+import Skills from "./Skills";
 const About = () => {
   return (
     <section id="about">
@@ -41,6 +42,8 @@ const About = () => {
         </div>
 
         <a className="btn">Contact</a>
+
+        <Skills />
       </div>
     </section>
   );
