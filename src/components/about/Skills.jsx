@@ -4,11 +4,11 @@ const Skills = () => {
   const getSkills = () => {
     const skills = [
       "JavaScript",
-      "C#",
-      "HTML/CSS",
-      "React",
       "Firebase",
+      "React",
       "React Native",
+      "HTML/CSS",
+      "C#",
       "Github",
       "SQL",
       "Photoshop",
