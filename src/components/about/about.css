@@ -1,8 +1,32 @@
 .about__container {
-  text-align: center;
 }
-.about__container > h1 {
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.title > h1 {
   color: var(--color-primary);
+}
+
+.about__content > h2 {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.about__content > h4 {
+  font-weight: 300;
+}
+
+.about__content span {
+  font-weight: 500;
 }
 
 @media screen and (max-width: 600px) {
