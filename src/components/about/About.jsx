@@ -1,29 +1,16 @@
 import React from "react";
 import "./about.css";
-import Me from "../../assets/me.jpg";
+import Me from "../../assets/robot-guy.png";
 import { FaAward } from "react-icons/fa";
 const About = () => {
   return (
     <section id="about">
-      <h5>Get to know</h5>
-      <h2>Me</h2>
-
       <div className="container about__container">
-        <div className="about__me">
-          <div className="about__me-image">
-            <img src={Me} alt={"About Image"} />
-          </div>
-        </div>
-
-        <div className="about__content">
-          <div className="about__cards">
-            <article className="about__card">
-              <FaAward className="about__icon" />
-              <h5>Experience</h5>
-              <small>3 Years</small>
-            </article>
-          </div>
-        </div>
+        <h1>ABOUT ME</h1>
+        <h4>
+          Here you will find more information about me, what I do, and my
+          current skills mostly in terms of programming and technology
+        </h4>
       </div>
     </section>
   );
