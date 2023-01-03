@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section id="about">
       <div className="container about__container">
-        <div className="title">
+        <div className="about__title">
           <h1>ABOUT ME</h1>
           <h4>
             Here you will find more information about me, what I do, and my
@@ -39,6 +39,8 @@ const About = () => {
             me.
           </h4>
         </div>
+
+        <a className="btn">Contact</a>
       </div>
     </section>
   );
