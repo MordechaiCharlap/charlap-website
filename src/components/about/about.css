@@ -50,6 +50,11 @@
   background: var(--color-light);
 }
 
+.skill__card:hover {
+  background: var(--color-primary);
+  transition: 200ms;
+  cursor: default;
+}
 .skill__card > h4 {
   font-weight: 400;
 }
