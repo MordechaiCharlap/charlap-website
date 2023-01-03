@@ -18,7 +18,11 @@ const Contact = () => {
             <h5>Email</h5>
             <input placeholder="Enter Your Email"></input>
             <h5>Message</h5>
-            <input placeholder="Enter Your Message"></input>
+            <textarea
+              rows={10}
+              className="messageInput"
+              placeholder="Enter Your Message"
+            ></textarea>
           </form>
         </div>
       </div>
