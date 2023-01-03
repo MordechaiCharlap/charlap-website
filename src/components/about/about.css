@@ -34,5 +34,17 @@
   margin-top: 2rem;
 }
 
+.skill__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill__card {
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  background: var(--color-light);
+}
+
 @media screen and (max-width: 600px) {
 }
