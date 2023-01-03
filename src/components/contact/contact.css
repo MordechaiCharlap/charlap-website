@@ -1,5 +1,4 @@
 #contact {
-  background: var(--color-secondary);
   padding-bottom: 5rem;
 }
 
@@ -8,20 +7,37 @@
   margin-bottom: 5rem;
 }
 .contact__title > h1 {
-  color: black;
+  color: var(--color-primary);
 }
 
 .contact__form__container {
   border-radius: 0.5rem;
   margin: auto;
-  background: var(--color-bg);
-  padding: 2rem;
+  border: 0.1rem solid var(--color-primary);
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
   width: 90%;
 }
 
-.contact__form__container > input {
+.contact__form__container > form > input,
+textarea {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+  border-radius: 0.3rem;
+  border: 0.1rem solid var(--color-primary);
+}
+.contact__form__container > form > input {
+}
+.contact__form__container > form > textarea {
 }
 
+::placeholder {
+  color: black;
+}
 @media screen and (max-width: 600px) {
   .contact__form__container {
     width: 90%;
