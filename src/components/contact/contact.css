@@ -34,11 +34,19 @@ textarea {
 }
 .contact__form__container > form > textarea {
 }
-
+.contact__form__container > a {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  text-align: center;
+  width: 15rem;
+}
 ::placeholder {
   color: black;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
+  .contact__form__container > a {
+    width: 100%;
+  }
   .contact__form__container {
     width: 90%;
   }
