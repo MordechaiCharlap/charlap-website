@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./contact.css";
 import { firestore } from "../../firebase.config.js";
 import { addDoc, collection } from "firebase/firestore";
@@ -17,6 +17,11 @@ const Contact = () => {
       await addDoc(collection(db, "submissions"), {
         ...submission,
       });
+      setName("");
+      setEmail("");
+      setMessage("");
+      console.log("Values cleaned");
+      console.log("valid email");
     } else {
       console.log("not a valid submission");
     }
@@ -43,16 +48,19 @@ const Contact = () => {
           <form>
             <h5>Name</h5>
             <input
+              value={name}
               onChange={(event) => setName(event.target.value)}
               placeholder="Enter Your Name"
             ></input>
             <h5>Email</h5>
             <input
+              value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Enter Your Email"
             ></input>
             <h5>Message</h5>
             <textarea
+              value={message}
               onChange={(event) => setMessage(event.target.value)}
               rows={10}
               className="messageInput"
