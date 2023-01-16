@@ -7,7 +7,7 @@
 .screenshot__card {
   position: relative;
   align-items: center;
-  background-color: rgb(25, 96, 196);
+  background-color: rgb(215, 244, 255);
   border-radius: 2rem;
   width: 18rem;
   height: 39rem;
@@ -15,7 +15,7 @@
 }
 .screenshot__title,
 .screenshot__subtitle {
-  color: #ffffff;
+  color: #002e62;
 }
 .screenshot__title {
   font-weight: 600;
@@ -24,10 +24,10 @@
 .screenshot__subtitle {
   text-align: center;
 }
-.screenshot__image {
+.screenshot__image__container {
   position: absolute;
-  border-radius: 1rem;
-  box-shadow: 0rem 0.2rem 0.3rem rgb(6, 54, 85);
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0.4rem 2rem rgb(6, 54, 85);
   overflow: hidden;
   right: 0;
   left: 0;
@@ -35,5 +35,9 @@
   margin-left: auto;
   margin-right: auto;
   width: 15rem;
-  height: 31.5rem;
+  height: 30.4rem;
+}
+.screenshot__image {
+  position: absolute;
+  bottom: -0.7rem;
 }
