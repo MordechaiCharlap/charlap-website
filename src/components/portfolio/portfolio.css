@@ -1,3 +1,36 @@
+.project__image {
+  width: 5rem;
+}
+.project__header__links {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.project__links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+.project__header__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+.project__title {
+  width: 20rem;
+}
+
+.screenshot__cards {
+  gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .screenshot__cards {
   gap: 2rem;
   display: flex;
@@ -15,7 +48,7 @@
 }
 .screenshot__title,
 .screenshot__subtitle {
-  color: #002e62;
+  color: #012145;
 }
 .screenshot__title {
   font-weight: 600;
@@ -26,8 +59,8 @@
 }
 .screenshot__image__container {
   position: absolute;
-  border-radius: 0.5rem;
-  box-shadow: 0rem 0.4rem 2rem rgb(6, 54, 85);
+  border-radius: 2rem;
+  box-shadow: 0rem 0.2rem 1.5rem rgb(3, 34, 55);
   overflow: hidden;
   right: 0;
   left: 0;
