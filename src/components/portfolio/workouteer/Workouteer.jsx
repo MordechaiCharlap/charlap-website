@@ -3,6 +3,8 @@ import "./workouteer.css";
 import workouteerIcon from "./assets/app-icon.png";
 import createWorkout from "./assets/create-workout.jpg";
 import findWorkouts from "./assets/find-workouts.jpg";
+import chat from "./assets/chat.jpg";
+import workoutDetails from "./assets/workout-details.jpg";
 import ProjectCard from "../ProjectCard";
 const Workouteer = () => {
   return (
@@ -27,6 +29,11 @@ const Workouteer = () => {
           screenshotImage={createWorkout}
         />
         <ProjectCard
+          title="Find your next workout partner!"
+          subTitle="Chat with people who share the same hobbies"
+          screenshotImage={workoutDetails}
+        />
+        <ProjectCard
           title="Find workouts in your area!"
           subTitle="Find workouts by city and distance from your current location"
           screenshotImage={findWorkouts}
@@ -34,7 +41,7 @@ const Workouteer = () => {
         <ProjectCard
           title="Find your next workout partner!"
           subTitle="Chat with people who share the same hobbies"
-          screenshotImage={findWorkouts}
+          screenshotImage={chat}
         />
       </div>
     </div>
