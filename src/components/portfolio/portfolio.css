@@ -1,0 +1,39 @@
+.screenshot__cards {
+  gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.screenshot__card {
+  position: relative;
+  align-items: center;
+  background-color: rgb(25, 96, 196);
+  border-radius: 2rem;
+  width: 18rem;
+  height: 39rem;
+  padding-top: 1rem;
+}
+.screenshot__title,
+.screenshot__subtitle {
+  color: #ffffff;
+}
+.screenshot__title {
+  font-weight: 600;
+  text-align: center;
+}
+.screenshot__subtitle {
+  text-align: center;
+}
+.screenshot__image {
+  position: absolute;
+  border-radius: 1rem;
+  box-shadow: 0rem 0.2rem 0.3rem rgb(6, 54, 85);
+  overflow: hidden;
+  right: 0;
+  left: 0;
+  bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15rem;
+  height: 31.5rem;
+}
