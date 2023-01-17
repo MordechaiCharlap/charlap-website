@@ -30,10 +30,7 @@ textarea {
   border-radius: 0.3rem;
   border: 0.1rem solid var(--color-primary);
 }
-.contact__form__container > form > input {
-}
-.contact__form__container > form > textarea {
-}
+
 .contact__form__container > a {
   background-color: var(--color-primary);
   color: var(--color-bg);
@@ -44,10 +41,32 @@ textarea {
   color: black;
 }
 @media screen and (max-width: 1024px) {
+  .contact__form__container {
+    border-radius: 0.5rem;
+    margin: auto;
+    border: 0.1rem solid var(--color-primary);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: 100%;
+  }
+  .contact__form__container > form > input,
+  textarea {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    width: 100%;
+    border-radius: 0.1rem;
+    border: 0.1rem solid var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
   .contact__form__container > a {
     width: 100%;
   }
-  .contact__form__container {
-    width: 90%;
+}
+@media screen and (max-width: 600px) {
+  .contact__form__container > a {
+    width: 100%;
   }
 }
