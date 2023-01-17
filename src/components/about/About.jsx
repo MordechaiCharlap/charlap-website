@@ -4,39 +4,34 @@ import Skills from "./Skills";
 const About = () => {
   const aboutContent = (
     <div className="about__content">
-      <h2>Get to know me!</h2>
       <h4>
-        I'm an aspiring <span>Fullstack developer</span> building the Front-end
-        of Websites and Web Applications that leads to the success of the
-        overall product. Check out some of my work in the <span>Projects</span>{" "}
-        section.
+        I learned to program in C# in high school, and after my military service
+        I started a <span>1 year C# web application development course</span>,
+        but in the last six months I decided to change direction, started to
+        self learn <span>mobile applications development</span> and became
+        addicted to the simplicity and efficiency of{" "}
+        <span>JavaScript using react Native</span>. I am currently looking for a
+        job in the field of software development for applications - preferably
+        mobile - and I would be happy to gain experience and knowledge during
+        this time.
       </h4>
       <h4>
-        I also like sharing content related to the stuff that I have learned
-        over the years in <span>Web Development</span> so it can help other
-        people of the Dev Community. Feel free to Connect or Follow me on my{" "}
-        <a href="https://github.com/MordechaiCharlap">
-          <span>Github</span>
-        </a>{" "}
-        where I post useful content related to Web Development and Programming.
-      </h4>
-      <h4>
-        {" "}
-        I'm open to <span>Job</span> opportunities where I can contribute, learn
-        and grow. If you have a good opportunity that matches my skills and
-        experience then don't hesitate to <span>contact</span> me.
+        My goal is to develop apps that will help people in their daily lives -
+        whether it's increasing the level of efficiency at work, fitness, and
+        social life - or having fun with a simple and fun game while they take a
+        moment for themselves.
+        <br />
+        <br />
+        <span>
+          Basically, I want people to use their time using the apps I helped
+          creating - without it being considered a waste of time ^_^
+        </span>
       </h4>
     </div>
   );
   return (
     <section id="about" className="container">
-      <div className="about__title">
-        <h1>ABOUT ME</h1>
-        <h4>
-          Here you will find more information about me, what I do, and my
-          current skills mostly in terms of programming and technology
-        </h4>
-      </div>
+      <h1 className="about__title">EXPERIENCE</h1>
       <div className="about__and__skills">
         <div className="about__container">
           {aboutContent}
