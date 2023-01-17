@@ -1,10 +1,11 @@
 import React from "react";
 import "./workouteer.css";
-import workouteerIcon from "./assets/app-icon.png";
-import createWorkout from "./assets/create-workout.jpg";
-import findWorkouts from "./assets/find-workouts.jpg";
-import chat from "./assets/chat.jpg";
-import workoutDetails from "./assets/workout-details.jpg";
+import workouteerIcon from "./assets/icon/app-icon.png";
+import createWorkout from "./assets/screenshots/create-workout.jpg";
+import findWorkouts from "./assets/screenshots/find-workouts.jpg";
+import chats from "./assets/screenshots/chats.jpg";
+import workoutDetails from "./assets/screenshots/workout-details.jpg";
+import apkUrl from "./assets/apk/Workouteer.apk";
 import ProjectCard from "../ProjectCard";
 const Workouteer = () => {
   return (
@@ -21,12 +22,12 @@ const Workouteer = () => {
 
         <div className="project__links">
           <div>
-            <a href="https://google.com" className="btn btn-primary">
+            <a download href={apkUrl} className="btn btn-primary">
               Download APK file!
             </a>
           </div>
           <div>
-            <a href="https://workouteer.co.il" className="btn">
+            <a className="btn" href="https://workouteer.co.il" target="_blank">
               {"Or check the Website version :)"}
             </a>
           </div>
@@ -51,7 +52,7 @@ const Workouteer = () => {
         <ProjectCard
           title="Find your next workout partner"
           subTitle="Chat with people who share the same hobbies"
-          screenshotImage={chat}
+          screenshotImage={chats}
         />
       </div>
     </div>
