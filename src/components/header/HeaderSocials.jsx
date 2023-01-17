@@ -12,7 +12,7 @@ const HeaderSocials = () => {
       <a href="https://github.com/MordechaiCharlap">
         <FaGithub />
       </a>
-      <a href="mailto:les@mordechai.cha@gmail.com">
+      <a href="mailto:mordechai.cha@gmail.com">
         <SiGmail />
       </a>
     </div>
