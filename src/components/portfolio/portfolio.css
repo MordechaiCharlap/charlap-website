@@ -25,14 +25,13 @@
 }
 
 .screenshot__cards {
-  gap: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .screenshot__cards {
-  gap: 2rem;
+  gap: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -40,11 +39,11 @@
 .screenshot__card {
   position: relative;
   align-items: center;
-  background-color: rgb(215, 244, 255);
+  background-color: rgb(255, 255, 255);
   border-radius: 2rem;
   width: 18rem;
   height: 39rem;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
 }
 .screenshot__title,
 .screenshot__subtitle {
@@ -60,7 +59,7 @@
 .screenshot__image__container {
   position: absolute;
   border-radius: 2rem;
-  box-shadow: 0rem 0.2rem 1.5rem rgb(3, 34, 55);
+  box-shadow: 0rem 0.2rem 1.2rem rgb(3, 34, 55);
   overflow: hidden;
   right: 0;
   left: 0;
