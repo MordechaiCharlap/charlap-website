@@ -8,18 +8,14 @@ import pastWorkouts from "./assets/screenshots/past-workouts.jpg";
 import apkUrl from "./assets/apk/Workouteer.apk";
 import ProjectCard from "../ProjectCard";
 import Carousel from "react-bootstrap/Carousel";
-import Button from "react-bootstrap/Button";
 import useCheckMobileScreen from "../../../hooks/useCheckMobileScreen";
 const Workouteer = () => {
   const isMobile = useCheckMobileScreen();
   console.log(isMobile);
   return (
     <div>
-      <Button as="a" variant="success">
-        Button as link
-      </Button>
       <div className="project__header__links">
-        <div className="project__header__container">
+        <div className="project__header">
           <div className="project__image">
             <img src={workouteerIcon} alt="Workouteer icon" />
           </div>
@@ -68,50 +64,31 @@ const Workouteer = () => {
         <Carousel>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="d-block w-100 rounded-lg p-1"
               src={workoutDetails}
               alt="First slide"
             />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="d-block w-100 rounded-lg p-1"
               src={findWorkouts}
               alt="Second slide"
             />
-
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="d-block w-100 rounded-lg p-1"
               src={pastWorkouts}
               alt="Third slide"
             />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block w-100" src={chats} alt="Third slide" />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
+            <img
+              className="d-block w-100 rounded-lg p-1"
+              src={chats}
+              alt="Third slide"
+            />
           </Carousel.Item>
         </Carousel>
       )}
