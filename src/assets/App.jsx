@@ -10,12 +10,12 @@ const App = () => {
   return (
     <div className="websiteLayout">
       <Header />
-      <Nav />
       <About />
       <Experience />
       <Portfolio />
       <Contact />
       <Footer />
+      <Nav />
     </div>
   );
 };
