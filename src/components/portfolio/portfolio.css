@@ -1,3 +1,6 @@
+.portfolio__container > h1 {
+  text-align: center;
+}
 .project__image {
   width: 5rem;
 }
@@ -72,4 +75,38 @@
 .screenshot__image {
   position: absolute;
   bottom: -0.7rem;
+}
+/*====================Media queries (sm)====================*/
+@media screen and (max-width: 600px) {
+  .project__header__links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .project__links {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .project__header__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .project__title {
+    width: 100%;
+  }
+
+  .project__image {
+    width: 3.5rem;
+  }
+  .header__socials,
+  .scroll__down {
+    display: none;
+  }
 }
