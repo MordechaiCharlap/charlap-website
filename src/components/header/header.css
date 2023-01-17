@@ -1,6 +1,6 @@
 header {
+  padding-top: 2rem;
   height: 100vh;
-  padding-top: 5rem;
   overflow: hidden;
 }
 
@@ -72,7 +72,7 @@ header {
 /*====================Media queries (sm)====================*/
 @media screen and (max-width: 600px) {
   header {
-    height: 100vh;
+    padding-top: 5rem;
   }
   .header__socials,
   .scroll__down {
