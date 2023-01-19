@@ -62,7 +62,7 @@ const Contact = () => {
             <textarea
               value={message}
               onChange={(event) => setMessage(event.target.value)}
-              rows={10}
+              rows={5}
               className="messageInput"
               placeholder="Enter Your Message"
             ></textarea>
