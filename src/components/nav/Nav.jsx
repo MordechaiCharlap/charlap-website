@@ -23,13 +23,13 @@ const Nav = () => {
       >
         <AiOutlineUser />
       </a>
-      <a
+      {/* <a
         href="#exprience"
         className={activeNav === "#exprience" ? "active" : ""}
         onClick={() => setActiveNav("#exprience")}
       >
         <BiBook />
-      </a>
+      </a> */}
       <a
         href="#portfolio"
         className={activeNav === "#portfolio" ? "active" : ""}
