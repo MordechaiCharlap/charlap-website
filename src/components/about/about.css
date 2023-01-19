@@ -28,6 +28,7 @@
 
 .about__content > h4 {
   font-weight: 300;
+  text-align: justify;
 }
 
 .about__content span {
