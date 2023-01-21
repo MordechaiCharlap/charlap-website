@@ -24,7 +24,7 @@ const Workouteer = () => {
     console.log("counting download");
     await updateDoc(doc(db, "workouteerStats", "apkDownloads"), {
       counter: increment(1),
-      clicks: arrayUnion(Timestamp.now()),
+      downloads: arrayUnion(Timestamp.now()),
     });
   };
   const openWebsiteListener = async () => {
@@ -32,7 +32,7 @@ const Workouteer = () => {
     console.log("counting click");
     await updateDoc(doc(db, "workouteerStats", "websiteClicks"), {
       counter: increment(1),
-      downloads: arrayUnion(Timestamp.now()),
+      clicks: arrayUnion(Timestamp.now()),
     });
   };
   return (
