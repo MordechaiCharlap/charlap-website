@@ -8,8 +8,8 @@ import home from "./assets/screenshots/home.jpg";
 import apkUrl from "./assets/apk/Workouteer.apk";
 import ProjectCard from "../ProjectCard";
 import Carousel from "react-bootstrap/Carousel";
-import useCheckMobileScreen from "../../../hooks/useCheckMobileScreen";
-import { firestore } from "../../../firebase.config";
+import useCheckMobileScreen from "../../../../hooks/useCheckMobileScreen";
+import { firestore } from "../../../../firebase.config";
 import {
   updateDoc,
   doc,

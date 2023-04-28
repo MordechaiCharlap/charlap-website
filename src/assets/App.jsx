@@ -1,22 +1,18 @@
 import React from "react";
-import About from "../components/about/About";
-import Contact from "../components/contact/Contact";
-import Experience from "../components/experience/Experience";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
-import Nav from "../components/nav/Nav";
-import Portfolio from "../components/portfolio/Portfolio";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WorkouteerPrivacyPolicyPage from "../pages/WorkouteerPrivacyPolicyPage";
+import HomePage from "../pages/HomePage";
 const App = () => {
   return (
-    <div className="websiteLayout">
-      <Header />
-      <About />
-      <Experience />
-      <Portfolio />
-      <Contact />
-      <Footer />
-      <Nav />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/workouteer-privacy-policy"
+          element={<WorkouteerPrivacyPolicyPage />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

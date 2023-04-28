@@ -1,6 +1,6 @@
 import React from "react";
 import "./header.css";
-import resume from "../../assets/Moti-Charlap-Resume.pdf";
+import resume from "../../../assets/Moti-Charlap-Resume.pdf";
 const CTA = () => {
   return (
     <div className="cta">
