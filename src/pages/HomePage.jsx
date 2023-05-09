@@ -10,10 +10,10 @@ function HomePage() {
   return (
     <div className="websiteLayout">
       <Header />
-      <About />
-      <Experience />
-      <Portfolio />
-      <Contact />
+      <About id="about" />
+      <Experience id="experience" />
+      <Portfolio id="portfolio" />
+      <Contact id="contact" />
       <Footer />
       <Nav />
     </div>
