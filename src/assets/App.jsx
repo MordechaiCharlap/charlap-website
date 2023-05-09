@@ -6,6 +6,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route index element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
         <Route
           path="/workouteer-privacy-policy"

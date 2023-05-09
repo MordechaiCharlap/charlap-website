@@ -10,9 +10,9 @@ const About = () => {
           I self learned for 1 year and then started a 1 year C# web application
           development course
         </span>
-        , but in the last six months I decided to change direction, started to
-        self learn <span>mobile applications development</span> and became
-        addicted to the simplicity and efficiency of{" "}
+        , but in the last year I decided to change direction, started to self
+        learn <span>mobile applications development</span> and became addicted
+        to the simplicity and efficiency of{" "}
         <span>JavaScript using react Native</span>. I am currently looking for a
         job in the field of software development for applications - preferably
         mobile - and I would be happy to gain experience and knowledge during
