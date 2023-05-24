@@ -19,10 +19,10 @@ import {
 } from "firebase/firestore";
 const Workouteer = () => {
   const isMobile = useCheckMobileScreen();
-  const downloadApkListener = async () => {
+  const googlePlayListener = async () => {
     const db = firestore;
-    console.log("counting download");
-    await updateDoc(doc(db, "workouteerStats", "apkDownloads"), {
+    console.log("counting googlePlay click");
+    await updateDoc(doc(db, "workouteerStats", "googlePlayClicks"), {
       counter: increment(1),
       downloads: arrayUnion(Timestamp.now()),
     });
@@ -53,12 +53,14 @@ const Workouteer = () => {
         <div className="project__links">
           <div>
             <a
-              download
-              href={apkUrl}
-              onClick={downloadApkListener}
+              href={
+                "https://play.google.com/store/apps/details?id=com.charlap.workouteer"
+              }
+              onClick={googlePlayListener}
               className="btn btn-primary project__link"
+              target="_blank"
             >
-              Download APK file!
+              Open on Google Play!
             </a>
           </div>
           <div>
