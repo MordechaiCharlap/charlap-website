@@ -5,9 +5,9 @@ import findWorkouts from "./assets/screenshots/find-workouts.jpg";
 import chats from "./assets/screenshots/chats.jpg";
 import workoutDetails from "./assets/screenshots/workout-details.jpg";
 import home from "./assets/screenshots/home.jpg";
-import apkUrl from "./assets/apk/Workouteer.apk";
 import ProjectCard from "../ProjectCard";
 import Carousel from "react-bootstrap/Carousel";
+import { useMediaQuery } from "react-responsive";
 import useCheckMobileScreen from "../../../../hooks/useCheckMobileScreen";
 import { firestore } from "../../../../firebase.config";
 import {
@@ -18,7 +18,7 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 const Workouteer = () => {
-  const isMobile = useCheckMobileScreen();
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const googlePlayListener = async () => {
     const db = firestore;
     console.log("counting googlePlay click");
@@ -34,6 +34,25 @@ const Workouteer = () => {
       counter: increment(1),
       clicks: arrayUnion(Timestamp.now()),
     });
+  };
+  const caruselItem = (image) => {
+    return (
+      <Carousel.Item>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <img
+            style={{ height: window.innerHeight, width: "auto" }}
+            className="rounded-lg"
+            src={image}
+            alt="First slide"
+          />
+        </div>
+      </Carousel.Item>
+    );
   };
   return (
     <div>
@@ -113,34 +132,10 @@ const Workouteer = () => {
         <div>
           <h5 className="text-center">Scroll left/right</h5>
           <Carousel interval={4000}>
-            <Carousel.Item>
-              <img
-                className="d-block w-100 rounded-lg p-1"
-                src={workoutDetails}
-                alt="First slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100 rounded-lg p-1"
-                src={findWorkouts}
-                alt="Second slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100 rounded-lg p-1"
-                src={home}
-                alt="Third slide"
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100 rounded-lg p-1"
-                src={chats}
-                alt="Third slide"
-              />
-            </Carousel.Item>
+            {caruselItem(workoutDetails)}
+            {caruselItem(findWorkouts)}
+            {caruselItem(home)}
+            {caruselItem(chats)}
           </Carousel>
         </div>
       )}
