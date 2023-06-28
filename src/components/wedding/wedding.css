@@ -1,30 +1,30 @@
-:root {
+.weddingReservationsPage {
   --color-bg: #ffffff;
   --color-primary: #145aaa;
+  --color-on-primary: #ffffff;
   --color-secondary: #3cb2bb;
   --color-outline: #666666;
   --color-surface-variant: #bebebe;
+  --transition: all 400ms ease;
 }
-.how__many {
+.weddingReservationsPage .how__many {
   background-color: var(--color-surface-variant);
 }
 /* Media queries (lg)*/
-.container {
+.weddingReservationsPage .container {
   width: 50%;
   background-color: white;
 }
-.increment__button {
-}
-a:hover {
+.weddingReservationsPage a:hover {
   cursor: pointer;
 }
-#rsvp {
+.weddingReservationsPage #rsvp {
   display: flex;
   flex-direction: column;
   align-items: start;
   height: 100vh;
 }
-.wedding__container {
+.weddingReservationsPage .wedding__container {
   align-items: center;
 }
 .reservation {
@@ -43,31 +43,35 @@ a:hover {
   flex-direction: row;
   align-items: flex-start; */
 }
-.btn {
+.weddingReservationsPage .btn {
   width: 200px;
   background: var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-on-primary);
 }
-.btn:hover {
-  background: var(--color-white);
+.weddingReservationsPage .btn:hover {
+  background: var(--color-on-primary);
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
 
-.our__image {
+.weddingReservationsPage .our__image {
   width: 100%;
   height: 700px;
   object-fit: cover;
 }
-h1,
-h2,
-h3 {
+.weddingReservationsPage h1 {
   color: black;
 }
-input::placeholder {
+.weddingReservationsPage h2 {
+  color: black;
+}
+.weddingReservationsPage h1 {
+  color: black;
+}
+.weddingReservationsPage input::placeholder {
   color: var(--color-outline);
 }
-input {
+.weddingReservationsPage input {
   width: 250;
   padding-right: 5px;
   border: solid var(--color-primary) 1px;
@@ -80,16 +84,16 @@ input {
 /* Media queries (sm)*/
 
 @media screen and (max-width: 600px) {
-  .container {
+  .weddingReservationsPage .container {
     width: 100%;
   }
-  #rsvp {
+  .weddingReservationsPage #rsvp {
     display: flex;
     flex-direction: column;
     height: 100vh;
     align-items: stretch;
   }
-  input {
+  .weddingReservationsPage input {
     width: 100%;
     border: solid var(--color-primary) 1px;
     background-color: var(--color-surface-variant);
