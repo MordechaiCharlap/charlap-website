@@ -1,16 +1,30 @@
+:root {
+  --color-bg: #ffffff;
+  --color-primary: #145aaa;
+  --color-secondary: #3cb2bb;
+  --color-outline: #666666;
+  --color-surface-variant: #bebebe;
+}
+.how__many {
+  background-color: var(--color-surface-variant);
+}
 /* Media queries (lg)*/
 .container {
-  background-color: cadetblue;
+  width: 50%;
+  background-color: white;
+}
+.increment__button {
+}
+a:hover {
+  cursor: pointer;
 }
 #rsvp {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   height: 100vh;
-  background-color: #a52a2a;
 }
 .wedding__container {
-  margin: 3rem 10rem;
-  background-color: green;
-
-  position: relative;
   align-items: center;
 }
 .reservation {
@@ -31,12 +45,13 @@
 }
 .btn {
   width: 200px;
-  background: var(--bootstrap-primary);
+  background: var(--color-primary);
   color: var(--color-white);
 }
 .btn:hover {
   background: var(--color-white);
-  border-color: var(--bootstrap-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .our__image {
@@ -49,7 +64,15 @@ h2,
 h3 {
   color: black;
 }
+input::placeholder {
+  color: var(--color-outline);
+}
 input {
+  width: 250;
+  padding-right: 5px;
+  border: solid var(--color-primary) 1px;
+  background-color: var(--color-surface-variant);
+  color: var(--color-primary);
 }
 /* Media queries (md)*/
 @media screen and (max-width: 1024px) {
@@ -57,4 +80,19 @@ input {
 /* Media queries (sm)*/
 
 @media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+  #rsvp {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: stretch;
+  }
+  input {
+    width: 100%;
+    border: solid var(--color-primary) 1px;
+    background-color: var(--color-surface-variant);
+    color: var(--color-primary);
+  }
 }
