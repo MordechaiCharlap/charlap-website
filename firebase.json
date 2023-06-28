@@ -19,7 +19,7 @@
         ]
       },
       {
-        "source": "/wedding-resevations/**",
+        "source": "/wedding-reservations/**",
         "headers": [
           {
             "key": "Cache-Control",
