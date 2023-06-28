@@ -26,6 +26,7 @@
   --container-width-lg: 75%;
   --container-width-md: 86%;
   --container-width-sm: 90%;
+  --bootstrap-primary: #0d6efd;
 }
 
 html {
