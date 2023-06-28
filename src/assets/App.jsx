@@ -14,7 +14,7 @@ const App = () => {
           element={<WorkouteerPrivacyPolicyPage />}
         />
         <Route
-          path="/wedding-resevations"
+          path="/wedding-reservations"
           element={<WeddingReservationsPage />}
         />
       </Routes>

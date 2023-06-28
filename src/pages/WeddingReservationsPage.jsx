@@ -1,12 +1,15 @@
 import React from "react";
 import { Rsvp } from "../components/wedding/Rsvp";
 import US from "../assets/wedding/tom-and-me.jpg";
-import "../components/wedding/wedding.css";
 import reservation from "../assets/wedding/reservation_.jpg";
 import { Button } from "react-bootstrap";
+import "../components/wedding/wedding.css";
 const WeddingReservationsPage = () => {
   return (
-    <div style={{ flex: 1, backgroundColor: "grey" }}>
+    <div
+      className="weddingReservationsPage"
+      style={{ flex: 1, backgroundColor: "grey" }}
+    >
       <div
         className="container"
         style={{
