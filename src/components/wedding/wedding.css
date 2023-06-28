@@ -75,7 +75,6 @@
   width: 250;
   padding-right: 5px;
   border: solid var(--color-primary) 1px;
-  background-color: var(--color-surface-variant);
   color: var(--color-primary);
 }
 /* Media queries (md)*/
@@ -94,9 +93,7 @@
     align-items: stretch;
   }
   .weddingReservationsPage input {
+    font-size: x-large;
     width: 100%;
-    border: solid var(--color-primary) 1px;
-    background-color: var(--color-surface-variant);
-    color: var(--color-primary);
   }
 }

@@ -3,8 +3,14 @@ import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { HowMany } from "./HowMany";
+import styles from "./wedding.css";
 export const Rsvp = () => {
   const [side, setSide] = useState();
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [guestsCount, setGuestsCount] = useState(1);
+  const emptyInputColor = "#bebebe";
+  const filledInputColor = "white";
   const dropdownItemStyle = {
     textAlign: "right",
   };
@@ -58,10 +64,35 @@ export const Rsvp = () => {
           ההורים של מוטי
         </Dropdown.Item>
       </DropdownButton>
+      <div
+        style={{
+          height: 10,
+        }}
+      />
+      <input
+        onChange={(e) => {
+          setFullName(e.nativeEvent.target.value);
+        }}
+        style={{
+          borderRadius: 8,
+          backgroundColor: fullName == "" ? emptyInputColor : filledInputColor,
+        }}
+        dir="rtl"
+        placeholder="שם מלא"
+      />
       <div style={{ height: 10 }} />
-      <input style={{ borderRadius: 8 }} dir="rtl" placeholder="שם מלא" />
-      <div style={{ height: 10 }} />
-      <input style={{ borderRadius: 8 }} dir="rtl" placeholder="מספר טלפון" />
+      <input
+        onChange={(e) => {
+          setPhoneNumber(e.nativeEvent.target.value);
+        }}
+        style={{
+          borderRadius: 8,
+          backgroundColor:
+            phoneNumber == "" ? emptyInputColor : filledInputColor,
+        }}
+        dir="rtl"
+        placeholder="מספר טלפון"
+      />
       <div style={{ height: 10 }} />
       <HowMany />
       <div style={{ height: 10 }} />
