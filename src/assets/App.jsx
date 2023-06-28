@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WorkouteerPrivacyPolicyPage from "../pages/WorkouteerPrivacyPolicyPage";
 import HomePage from "../pages/HomePage";
-import WeddingResevationsPage from "../pages/WeddingResevationsPage";
+import WeddingReservationsPage from "../pages/WeddingReservationsPage";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,7 +15,7 @@ const App = () => {
         />
         <Route
           path="/wedding-resevations"
-          element={<WeddingResevationsPage />}
+          element={<WeddingReservationsPage />}
         />
       </Routes>
     </BrowserRouter>
