@@ -4,9 +4,9 @@ import US from "../assets/wedding/tom-and-me.jpg";
 import "../components/wedding/wedding.css";
 import reservation from "../assets/wedding/reservation_.jpg";
 import { Button } from "react-bootstrap";
-const WeddingResevationsPage = () => {
+const WeddingReservationsPage = () => {
   return (
-    <div style={{ flex: 1, backgroundColor: "white" }}>
+    <div style={{ flex: 1, backgroundColor: "grey" }}>
       <div
         className="container"
         style={{
@@ -33,4 +33,4 @@ const WeddingResevationsPage = () => {
     </div>
   );
 };
-export default WeddingResevationsPage;
+export default WeddingReservationsPage;
