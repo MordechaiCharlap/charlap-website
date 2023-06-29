@@ -29,16 +29,16 @@
 .weddingReservationsPage a:hover {
   cursor: pointer;
 }
-.weddingReservationsPage #rsvp {
+.weddingReservationsPage .fullPage {
   padding: 20px;
   height: 100vh;
 }
-.weddingReservationsPage .rsvp__form {
+.weddingReservationsPage .form {
   align-items: center;
   background-color: var(--color-surface);
   border: solid var(--color-outline) 1px;
   padding: 15px;
-  border-radius: 5%;
+  border-radius: 2rem;
   display: inline-flex;
   flex-direction: column;
 }
@@ -105,7 +105,7 @@
   .weddingReservationsPage .coming__or__not .btn {
     flex: 1;
   }
-  .weddingReservationsPage #rsvp {
+  .weddingReservationsPage .fullPage {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -129,7 +129,7 @@
   .weddingReservationsPage .coming__or__not .btn {
     flex: 1;
   }
-  .weddingReservationsPage #rsvp {
+  .weddingReservationsPage .fullPage {
     display: flex;
     flex-direction: column;
     height: 100vh;
