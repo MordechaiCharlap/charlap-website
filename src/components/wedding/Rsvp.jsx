@@ -6,31 +6,33 @@ import { HowMany } from "./HowMany";
 import styles from "./wedding.css";
 import $ from "jquery";
 import { firestore } from "../../firebase.config";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
 import { ExistsRsvp } from "./ExistsRsvp";
 
 export const Rsvp = () => {
   const db = firestore;
   const [weddingData, setWeddingData] = useState();
-  const [side, setSide] = useState();
   const [sides, setSides] = useState([]);
+  const [side, setSide] = useState();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [fullName, setFullName] = useState("");
   const [guestCount, setGuestCount] = useState(1);
+  const [isComing, setIsComing] = useState();
   const [allArraysArray, setAllArraysArray] = useState([]);
   const [existsRsvp, setExistsRsvp] = useState();
+  const [submitted, setSubmitted] = useState(false);
   useEffect(() => {
-    const getWeddingData = async () => {
-      const data = (await getDoc(doc(db, "wedding/allData"))).data();
+    const unsub = onSnapshot(doc(db, "wedding/allData"), (doc) => {
+      const data = doc.data();
       setWeddingData(data);
       setSides(data.sides);
       setAllArraysArray([
-        ...data.guestList,
         ...data.submittedComing,
         ...data.submittedNotComing,
+        ...data.guestList,
       ]);
-    };
-    getWeddingData();
+    });
+    return () => unsub();
   }, []);
 
   const emptyInputColor = "#bebebe";
@@ -91,11 +93,14 @@ export const Rsvp = () => {
   };
   const submitComing = () => {
     if (validateInputs()) {
+      setIsComing(true);
       checkIfPhoneNumberExists();
     }
   };
   const submitNotComing = () => {
     if (validateInputs()) {
+      setIsComing(false);
+      checkIfPhoneNumberExists();
     }
   };
   const sideChanged = (sideChange) => {
@@ -104,10 +109,57 @@ export const Rsvp = () => {
       $("#dropdown-basic-button").removeClass("errorInput");
     }
   };
+  const updateRsvp = (update) => {
+    if (update) {
+      const weddingDataClone = { ...weddingData };
+
+      const newSubmittedComing = weddingDataClone.submittedComing.filter(
+        (rsvp) => rsvp.phoneNumber != phoneNumber
+      );
+      const newSubmittedNotComing = weddingDataClone.submittedNotComing.filter(
+        (rsvp) => rsvp.phoneNumber != phoneNumber
+      );
+      const newRsvp = {
+        phoneNumber: phoneNumber,
+        fullName: fullName,
+        side: side,
+        guestCount: guestCount,
+        isComing: isComing,
+      };
+      if (isComing) newSubmittedComing.push(newRsvp);
+      else newSubmittedNotComing.push(newRsvp);
+      updateDoc(doc(db, "wedding/allData"), {
+        submittedComing: newSubmittedComing,
+        submittedNotComing: newSubmittedNotComing,
+      });
+    }
+    setFullName("");
+    setPhoneNumber("");
+    setGuestCount(1);
+    setSide();
+    setExistsRsvp();
+    setSubmitted(true);
+  };
   return (
     <div id="rsvp">
-      {existsRsvp ? (
-        <ExistsRsvp existsRsvp={existsRsvp} />
+      {submitted ? (
+        <div className="fullPage align-items-center">
+          <h1 dir="rtl" className="text-center">
+            הטופס נשלח ונקלט במערכת, תודה רבה!
+          </h1>
+          <Button onClick={() => setSubmitted(false)}>חזרה</Button>
+        </div>
+      ) : existsRsvp ? (
+        <ExistsRsvp
+          existsRsvp={existsRsvp}
+          newRsvp={{
+            phoneNumber: phoneNumber,
+            fullName: fullName,
+            guestCount: guestCount,
+            isComing: isComing,
+          }}
+          updateRsvp={updateRsvp}
+        />
       ) : (
         <div dir="rtl" className="fullPage">
           <div className="form">
