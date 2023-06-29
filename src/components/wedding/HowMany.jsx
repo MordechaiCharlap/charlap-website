@@ -27,12 +27,17 @@ export const HowMany = (props) => {
             <DashCircleFill color={primaryColor} size={50} />
           </div>
         </a>
-        <div style={{ flex: 1 }}>
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <h1
             style={{
               color: primaryColor,
               textAlign: "center",
-              justifySelf: "center",
               marginTop: "auto",
               marginBottom: "auto",
             }}
