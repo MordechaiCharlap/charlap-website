@@ -25,13 +25,13 @@
   height: 100vh;
 }
 .weddingReservationsPage .rsvp__form {
-  background-color: var(--color-surface);
+  align-items: center;
+  background-color: #dfdfdf;
   border: solid var(--color-outline) 1px;
   padding: 15px;
   border-radius: 5%;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  align-items: start;
 }
 .weddingReservationsPage .wedding__container {
   align-items: center;
@@ -47,9 +47,6 @@
   flex-direction: column;
   row-gap: 1rem;
   align-items: center;
-  /*column-gap: 20px;
-  flex-direction: row;
-  align-items: flex-start; */
 }
 .weddingReservationsPage .btn {
   width: 200px;
@@ -78,16 +75,20 @@
   border: solid var(--color-input) 1px;
   color: var(--color-input);
 }
+.weddingReservationsPage .coming__or__not {
+  width: 100%;
+  display: flex;
+}
 /* Media queries (md)*/
 @media screen and (max-width: 1024px) {
   .weddingReservationsPage .container {
     width: 80%;
   }
-  .coming__or__not {
+  .weddingReservationsPage .coming__or__not {
     width: 100%;
     display: flex;
   }
-  .coming__or__not .btn {
+  .weddingReservationsPage .coming__or__not .btn {
     flex: 1;
   }
   .weddingReservationsPage #rsvp {
@@ -107,11 +108,11 @@
   .weddingReservationsPage .container {
     width: 100%;
   }
-  .coming__or__not {
+  .weddingReservationsPage .coming__or__not {
     width: 100%;
     display: flex;
   }
-  .coming__or__not .btn {
+  .weddingReservationsPage .coming__or__not .btn {
     flex: 1;
   }
   .weddingReservationsPage #rsvp {
