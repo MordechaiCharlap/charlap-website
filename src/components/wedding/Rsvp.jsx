@@ -16,14 +16,7 @@ export const Rsvp = () => {
   };
   return (
     <div dir="rtl" id="rsvp">
-      <div
-        className="rsvp__form"
-        style={{
-          alignItems: "center",
-          flexDirection: "column",
-          display: "inline-flex",
-        }}
-      >
+      <div className="rsvp__form">
         <DropdownButton id="dropdown-basic-button" title={side || "בחרו צד"}>
           <Dropdown.Item
             style={dropdownItemStyle}
@@ -97,6 +90,7 @@ export const Rsvp = () => {
         <div style={{ height: 10 }} />
         <div className="coming__or__not">
           <Button variant="success">מגיעים</Button>
+          <div style={{ width: 10 }} />
           <Button variant="danger">לא מגיעים</Button>
         </div>
       </div>
