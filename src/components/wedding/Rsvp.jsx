@@ -5,15 +5,32 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import { HowMany } from "./HowMany";
 import styles from "./wedding.css";
 import $ from "jquery";
+import { firestore } from "../../firebase.config";
+import { doc, getDoc } from "firebase/firestore";
+
 export const Rsvp = () => {
+  const db = firestore;
+  const [weddingData, setWeddingData] = useState();
   const [side, setSide] = useState();
+  const [sides, setSides] = useState([]);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [fullName, setFullName] = useState("");
   const [guestCount, setGuestCount] = useState(1);
+
+  useEffect(() => {
+    const getWeddingData = async () =>
+      setWeddingData((await getDoc(doc(db, "wedding/allData"))).data());
+    getWeddingData();
+  }, []);
+  useEffect(() => {
+    if (weddingData) setSides(weddingData.sides);
+  }, [weddingData]);
+
   const emptyInputColor = "#bebebe";
   const filledInputColor = "white";
   const dropdownItemStyle = {
-    textAlign: "right",
+    width: 200,
+    textAlign: "center",
   };
   const fullNameChanged = (text) => {
     setFullName(text);
@@ -23,29 +40,45 @@ export const Rsvp = () => {
   };
   const phoneNumberChanged = (text) => {
     const regex = /^\d{1,10}$/;
-    if (regex.test(text) || text == "") {
+    const internationalRegex = /^[+]\d{0,20}$/;
+
+    if (regex.test(text) || internationalRegex.test(text) || text == "") {
       setPhoneNumber(text);
     }
     if (text != "") {
       $(".phoneNumberInput").removeClass("errorInput");
     }
   };
-  const submitComing = () => {};
-  const submitNotComing = () => {
+  const validateInputs = () => {
     var isValid = true;
     if (fullName === "") {
       $(".fullNameInput").addClass("errorInput");
       isValid = false;
     }
     const validPhoneNumberRegex = /^\d{10}$/;
-    if (phoneNumber === "" || !validPhoneNumberRegex.test(phoneNumber)) {
+    const validInternationalRegex =
+      /^\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{1,5}[-.\s]?\d{1,5}[-.\s]?\d{1,9}$/;
+    if (
+      phoneNumber === "" ||
+      !validInternationalRegex.test(phoneNumber) ||
+      !validPhoneNumberRegex.test(phoneNumber)
+    ) {
       $(".phoneNumberInput").addClass("errorInput");
       isValid = false;
     }
     if (!side) {
       $("#dropdown-basic-button").addClass("errorInput");
+      isValid = false;
     }
-    if (!isValid) return;
+    return isValid;
+  };
+  const submitComing = () => {
+    if (validateInputs()) {
+    }
+  };
+  const submitNotComing = () => {
+    if (validateInputs()) {
+    }
   };
   const sideChanged = (sideChange) => {
     setSide(sideChange);
@@ -58,31 +91,17 @@ export const Rsvp = () => {
     <div dir="rtl" id="rsvp">
       <div className="rsvp__form">
         <DropdownButton id="dropdown-basic-button" title={side || "בחרו צד"}>
-          <Dropdown.Item
-            style={dropdownItemStyle}
-            onClick={() => sideChanged("משפחה תם")}
-          >
-            תם - משפחה
-          </Dropdown.Item>
-          <Dropdown.Item
-            style={dropdownItemStyle}
-            onClick={() => sideChanged("החברים של תם")}
-          >
-            תם - חברים
-          </Dropdown.Item>
-          <Dropdown.Item
-            style={dropdownItemStyle}
-            onClick={() => sideChanged("משפחה מוטי")}
-          >
-            מוטי - משפחה
-          </Dropdown.Item>
-
-          <Dropdown.Item
-            style={dropdownItemStyle}
-            onClick={() => sideChanged("ההורים של תם")}
-          >
-            מוטי - חברים
-          </Dropdown.Item>
+          {sides.map((side) => {
+            return (
+              <Dropdown.Item
+                key={side}
+                style={dropdownItemStyle}
+                onClick={() => sideChanged(side)}
+              >
+                {side}
+              </Dropdown.Item>
+            );
+          })}
         </DropdownButton>
         <div
           style={{
@@ -114,14 +133,18 @@ export const Rsvp = () => {
             backgroundColor:
               phoneNumber == "" ? emptyInputColor : filledInputColor,
           }}
-          dir="rtl"
+          dir="ltr"
           placeholder="מספר טלפון"
         />
         <div style={{ height: 10 }} />
         <HowMany setGuestCount={setGuestCount} />
         <div style={{ height: 10 }} />
         <div className="coming__or__not">
-          <Button className="coming__button" variant="success">
+          <Button
+            onClick={submitComing}
+            className="coming__button"
+            variant="success"
+          >
             מגיעים
           </Button>
           <div style={{ width: 10 }} />
@@ -135,7 +158,7 @@ export const Rsvp = () => {
         </div>
       </div>
       <p style={{ width: 400 }}>
-        *אם אתם רוצים לעדכן את האישור שלכם מלאו את הטופס שוב עם אותו המספר טלפון
+        *אם אתם רוצים לעדכן את האישור שלכם מלאו את הטופס שוב עם אותו מספר טלפון
       </p>
     </div>
   );
