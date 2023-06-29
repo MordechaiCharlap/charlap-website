@@ -7,6 +7,7 @@ import styles from "./wedding.css";
 import $ from "jquery";
 import { firestore } from "../../firebase.config";
 import { doc, getDoc } from "firebase/firestore";
+import { ExistsRsvp } from "./ExistsRsvp";
 
 export const Rsvp = () => {
   const db = firestore;
@@ -16,15 +17,21 @@ export const Rsvp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [fullName, setFullName] = useState("");
   const [guestCount, setGuestCount] = useState(1);
-
+  const [allArraysArray, setAllArraysArray] = useState([]);
+  const [existsRsvp, setExistsRsvp] = useState();
   useEffect(() => {
-    const getWeddingData = async () =>
-      setWeddingData((await getDoc(doc(db, "wedding/allData"))).data());
+    const getWeddingData = async () => {
+      const data = (await getDoc(doc(db, "wedding/allData"))).data();
+      setWeddingData(data);
+      setSides(data.sides);
+      setAllArraysArray([
+        ...data.guestList,
+        ...data.submittedComing,
+        ...data.submittedNotComing,
+      ]);
+    };
     getWeddingData();
   }, []);
-  useEffect(() => {
-    if (weddingData) setSides(weddingData.sides);
-  }, [weddingData]);
 
   const emptyInputColor = "#bebebe";
   const filledInputColor = "white";
@@ -32,6 +39,16 @@ export const Rsvp = () => {
     width: 200,
     textAlign: "center",
   };
+
+  const checkIfPhoneNumberExists = () => {
+    const existsDataIndex = allArraysArray.findIndex((element) => {
+      return element.phoneNumber == phoneNumber;
+    });
+    if (existsDataIndex != -1) {
+      setExistsRsvp(allArraysArray[existsDataIndex]);
+    }
+  };
+
   const fullNameChanged = (text) => {
     setFullName(text);
     if (text != "") {
@@ -74,6 +91,7 @@ export const Rsvp = () => {
   };
   const submitComing = () => {
     if (validateInputs()) {
+      checkIfPhoneNumberExists();
     }
   };
   const submitNotComing = () => {
@@ -83,83 +101,92 @@ export const Rsvp = () => {
   const sideChanged = (sideChange) => {
     setSide(sideChange);
     if (sideChange) {
-      console.log(sideChange);
       $("#dropdown-basic-button").removeClass("errorInput");
     }
   };
   return (
-    <div dir="rtl" id="rsvp">
-      <div className="rsvp__form">
-        <DropdownButton id="dropdown-basic-button" title={side || "בחרו צד"}>
-          {sides.map((side) => {
-            return (
-              <Dropdown.Item
-                key={side}
-                style={dropdownItemStyle}
-                onClick={() => sideChanged(side)}
+    <div id="rsvp">
+      {existsRsvp ? (
+        <ExistsRsvp existsRsvp={existsRsvp} />
+      ) : (
+        <div dir="rtl" className="fullPage">
+          <div className="form">
+            <DropdownButton
+              id="dropdown-basic-button"
+              title={side || "בחרו צד"}
+            >
+              {sides.map((side, index) => {
+                return (
+                  <Dropdown.Item
+                    key={side}
+                    style={dropdownItemStyle}
+                    onClick={() => sideChanged(side)}
+                  >
+                    {side}
+                  </Dropdown.Item>
+                );
+              })}
+            </DropdownButton>
+            <div
+              style={{
+                height: 10,
+              }}
+            />
+            <input
+              className="fullNameInput"
+              onChange={(e) => {
+                fullNameChanged(e.nativeEvent.target.value);
+              }}
+              style={{
+                borderRadius: 8,
+                backgroundColor:
+                  fullName == "" ? emptyInputColor : filledInputColor,
+              }}
+              dir="rtl"
+              placeholder="שם מלא"
+            />
+            <div style={{ height: 10 }} />
+            <input
+              value={phoneNumber}
+              className="phoneNumberInput"
+              onChange={(e) => {
+                phoneNumberChanged(e.nativeEvent.target.value);
+              }}
+              style={{
+                borderRadius: 8,
+                backgroundColor:
+                  phoneNumber == "" ? emptyInputColor : filledInputColor,
+              }}
+              dir="ltr"
+              placeholder="מספר טלפון"
+            />
+            <div style={{ height: 10 }} />
+            <HowMany setGuestCount={setGuestCount} />
+            <div style={{ height: 10 }} />
+            <div className="coming__or__not">
+              <Button
+                onClick={submitComing}
+                className="coming__button"
+                variant="success"
               >
-                {side}
-              </Dropdown.Item>
-            );
-          })}
-        </DropdownButton>
-        <div
-          style={{
-            height: 10,
-          }}
-        />
-        <input
-          className="fullNameInput"
-          onChange={(e) => {
-            fullNameChanged(e.nativeEvent.target.value);
-          }}
-          style={{
-            borderRadius: 8,
-            backgroundColor:
-              fullName == "" ? emptyInputColor : filledInputColor,
-          }}
-          dir="rtl"
-          placeholder="שם מלא"
-        />
-        <div style={{ height: 10 }} />
-        <input
-          value={phoneNumber}
-          className="phoneNumberInput"
-          onChange={(e) => {
-            phoneNumberChanged(e.nativeEvent.target.value);
-          }}
-          style={{
-            borderRadius: 8,
-            backgroundColor:
-              phoneNumber == "" ? emptyInputColor : filledInputColor,
-          }}
-          dir="ltr"
-          placeholder="מספר טלפון"
-        />
-        <div style={{ height: 10 }} />
-        <HowMany setGuestCount={setGuestCount} />
-        <div style={{ height: 10 }} />
-        <div className="coming__or__not">
-          <Button
-            onClick={submitComing}
-            className="coming__button"
-            variant="success"
-          >
-            מגיעים
-          </Button>
-          <div style={{ width: 10 }} />
-          <Button
-            onClick={submitNotComing}
-            className="not__coming__button"
-            variant="danger"
-          >
-            לא מגיעים
-          </Button>
+                מגיעים
+              </Button>
+              <div style={{ width: 10 }} />
+              <Button
+                onClick={submitNotComing}
+                className="not__coming__button"
+                variant="danger"
+              >
+                לא מגיעים
+              </Button>
+            </div>
+          </div>
+          <p style={{ width: 400 }}>
+            *אם אתם רוצים לעדכן את האישור שלכם מלאו את הטופס שוב עם אותו מספר
+            טלפון
+          </p>
         </div>
-      </div>
-      <p style={{ width: 400 }}>
-        *אם אתם רוצים לעדכן את האישור שלכם מלאו את הטופס שוב עם אותו מספר טלפון
-      </p>
+      )}
     </div>
   );
 };
