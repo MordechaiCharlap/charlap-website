@@ -15,89 +15,91 @@ export const Rsvp = () => {
     textAlign: "right",
   };
   return (
-    <div
-      dir="rtl"
-      style={{
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "start",
-      }}
-      id="rsvp"
-    >
-      <h1 style={{ alignSelf: "center" }}>אישור הגעה</h1>
-      <DropdownButton id="dropdown-basic-button" title={side || "בחרו צד"}>
-        <Dropdown.Item
-          style={dropdownItemStyle}
-          onClick={() => setSide("משפחה תם")}
-        >
-          משפחה תם
-        </Dropdown.Item>
-        <Dropdown.Item
-          style={dropdownItemStyle}
-          onClick={() => setSide("משפחה מוטי")}
-        >
-          משפחה מוטי
-        </Dropdown.Item>
-        <Dropdown.Item
-          style={dropdownItemStyle}
-          onClick={() => setSide("החברים של תם")}
-        >
-          החברים של תם
-        </Dropdown.Item>
-        <Dropdown.Item
-          style={dropdownItemStyle}
-          onClick={() => setSide("ההורים של תם")}
-        >
-          ההורים של תם
-        </Dropdown.Item>
-        <Dropdown.Item
-          style={dropdownItemStyle}
-          onClick={() => setSide("החברים של מוטי")}
-        >
-          החברים של מוטי
-        </Dropdown.Item>
-        <Dropdown.Item
-          style={dropdownItemStyle}
-          onClick={() => setSide("ההורים של מוטי")}
-        >
-          ההורים של מוטי
-        </Dropdown.Item>
-      </DropdownButton>
+    <div dir="rtl" id="rsvp">
       <div
+        className="rsvp__form"
         style={{
-          height: 10,
+          alignItems: "center",
+          flexDirection: "column",
+          display: "inline-flex",
         }}
-      />
-      <input
-        onChange={(e) => {
-          setFullName(e.nativeEvent.target.value);
-        }}
-        style={{
-          borderRadius: 8,
-          backgroundColor: fullName == "" ? emptyInputColor : filledInputColor,
-        }}
-        dir="rtl"
-        placeholder="שם מלא"
-      />
-      <div style={{ height: 10 }} />
-      <input
-        onChange={(e) => {
-          setPhoneNumber(e.nativeEvent.target.value);
-        }}
-        style={{
-          borderRadius: 8,
-          backgroundColor:
-            phoneNumber == "" ? emptyInputColor : filledInputColor,
-        }}
-        dir="rtl"
-        placeholder="מספר טלפון"
-      />
-      <div style={{ height: 10 }} />
-      <HowMany />
-      <div style={{ height: 10 }} />
-
-      <Button>עדכון הגעה</Button>
+      >
+        <DropdownButton id="dropdown-basic-button" title={side || "בחרו צד"}>
+          <Dropdown.Item
+            style={dropdownItemStyle}
+            onClick={() => setSide("משפחה תם")}
+          >
+            משפחה תם
+          </Dropdown.Item>
+          <Dropdown.Item
+            style={dropdownItemStyle}
+            onClick={() => setSide("משפחה מוטי")}
+          >
+            משפחה מוטי
+          </Dropdown.Item>
+          <Dropdown.Item
+            style={dropdownItemStyle}
+            onClick={() => setSide("החברים של תם")}
+          >
+            החברים של תם
+          </Dropdown.Item>
+          <Dropdown.Item
+            style={dropdownItemStyle}
+            onClick={() => setSide("ההורים של תם")}
+          >
+            ההורים של תם
+          </Dropdown.Item>
+          <Dropdown.Item
+            style={dropdownItemStyle}
+            onClick={() => setSide("החברים של מוטי")}
+          >
+            החברים של מוטי
+          </Dropdown.Item>
+          <Dropdown.Item
+            style={dropdownItemStyle}
+            onClick={() => setSide("ההורים של מוטי")}
+          >
+            ההורים של מוטי
+          </Dropdown.Item>
+        </DropdownButton>
+        <div
+          style={{
+            height: 10,
+          }}
+        />
+        <input
+          onChange={(e) => {
+            setFullName(e.nativeEvent.target.value);
+          }}
+          style={{
+            borderRadius: 8,
+            backgroundColor:
+              fullName == "" ? emptyInputColor : filledInputColor,
+          }}
+          dir="rtl"
+          placeholder="שם מלא"
+        />
+        <div style={{ height: 10 }} />
+        <input
+          onChange={(e) => {
+            setPhoneNumber(e.nativeEvent.target.value);
+          }}
+          style={{
+            borderRadius: 8,
+            backgroundColor:
+              phoneNumber == "" ? emptyInputColor : filledInputColor,
+          }}
+          dir="rtl"
+          placeholder="מספר טלפון"
+        />
+        <div style={{ height: 10 }} />
+        <HowMany />
+        <div style={{ height: 10 }} />
+        <div className="coming__or__not">
+          <Button variant="success">מגיעים</Button>
+          <Button variant="danger">לא מגיעים</Button>
+        </div>
+      </div>
     </div>
   );
 };
