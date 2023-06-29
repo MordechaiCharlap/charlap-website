@@ -34,7 +34,10 @@ export const Rsvp = () => {
     });
     return () => unsub();
   }, []);
-
+  useEffect(() => {
+    if (isComing == null) return;
+    if (!checkIfPhoneNumberExists()) submitRsvp();
+  }, [isComing]);
   const emptyInputColor = "#bebebe";
   const filledInputColor = "white";
   const dropdownItemStyle = {
@@ -96,17 +99,12 @@ export const Rsvp = () => {
   const submitComing = () => {
     if (validateInputs()) {
       setIsComing(true);
-      if (!checkIfPhoneNumberExists()) {
-        submitRsvp();
-      }
     }
   };
   const submitNotComing = () => {
     if (validateInputs()) {
+      console.log("setting coming to false");
       setIsComing(false);
-      if (!checkIfPhoneNumberExists()) {
-        submitRsvp();
-      }
     }
   };
   const sideChanged = (sideChange) => {
@@ -145,10 +143,14 @@ export const Rsvp = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
+    cleanState();
+  };
+  const cleanState = () => {
     setFullName("");
     setPhoneNumber("");
     setGuestCount(1);
     setSide();
+    setIsComing();
     setExistsRsvp();
   };
   const submitRsvp = () => {
@@ -160,15 +162,12 @@ export const Rsvp = () => {
       guestCount: guestCount,
       isComing: isComing,
     };
-    if (isComing) dataClone.submittedComing.push(newRsvp);
+    if (isComing == false) dataClone.submittedComing.push(newRsvp);
     else dataClone.submittedNotComing.push(newRsvp);
+    console.log(dataClone);
     updateDoc(doc(db, "wedding/allData"), dataClone);
     setSubmitted(true);
-    setFullName("");
-    setPhoneNumber("");
-    setGuestCount(1);
-    setSide();
-    setExistsRsvp();
+    cleanState();
   };
   return (
     <div id="rsvp">
