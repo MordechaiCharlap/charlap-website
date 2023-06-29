@@ -24,3 +24,14 @@
 #existsRsvp .grid p {
   text-align: center;
 }
+@media screen and (max-width: 1024px) {
+  #existsRsvp .form {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #existsRsvp .form {
+    padding: 1.5rem;
+  }
+}
