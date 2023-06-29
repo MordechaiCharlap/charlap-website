@@ -48,7 +48,9 @@ export const Rsvp = () => {
     });
     if (existsDataIndex != -1) {
       setExistsRsvp(allArraysArray[existsDataIndex]);
+      return true;
     }
+    return false;
   };
 
   const fullNameChanged = (text) => {
@@ -94,13 +96,17 @@ export const Rsvp = () => {
   const submitComing = () => {
     if (validateInputs()) {
       setIsComing(true);
-      checkIfPhoneNumberExists();
+      if (!checkIfPhoneNumberExists()) {
+        submitRsvp();
+      }
     }
   };
   const submitNotComing = () => {
     if (validateInputs()) {
       setIsComing(false);
-      checkIfPhoneNumberExists();
+      if (!checkIfPhoneNumberExists()) {
+        submitRsvp();
+      }
     }
   };
   const sideChanged = (sideChange) => {
@@ -132,13 +138,37 @@ export const Rsvp = () => {
         submittedComing: newSubmittedComing,
         submittedNotComing: newSubmittedNotComing,
       });
+      setSubmitted(true);
+    } else {
+      const element = document.getElementById("wedding-reservation-start");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setFullName("");
     setPhoneNumber("");
     setGuestCount(1);
     setSide();
     setExistsRsvp();
+  };
+  const submitRsvp = () => {
+    const dataClone = { ...weddingData };
+    const newRsvp = {
+      phoneNumber: phoneNumber,
+      fullName: fullName,
+      side: side,
+      guestCount: guestCount,
+      isComing: isComing,
+    };
+    if (isComing) dataClone.submittedComing.push(newRsvp);
+    else dataClone.submittedNotComing.push(newRsvp);
+    updateDoc(doc(db, "wedding/allData"), dataClone);
     setSubmitted(true);
+    setFullName("");
+    setPhoneNumber("");
+    setGuestCount(1);
+    setSide();
+    setExistsRsvp();
   };
   return (
     <div id="rsvp">
@@ -147,7 +177,12 @@ export const Rsvp = () => {
           <h1 dir="rtl" className="text-center">
             הטופס נשלח ונקלט במערכת, תודה רבה!
           </h1>
-          <Button onClick={() => setSubmitted(false)}>חזרה</Button>
+          <Button
+            href="#wedding-reservation-start"
+            onClick={() => setSubmitted(false)}
+          >
+            חזרה
+          </Button>
         </div>
       ) : existsRsvp ? (
         <ExistsRsvp
@@ -233,10 +268,10 @@ export const Rsvp = () => {
               </Button>
             </div>
           </div>
-          <p style={{ width: 400 }}>
+          {/* <p>
             *אם אתם רוצים לעדכן את האישור שלכם מלאו את הטופס שוב עם אותו מספר
             טלפון
-          </p>
+          </p> */}
         </div>
       )}
     </div>
