@@ -26,8 +26,8 @@ const WeddingReservationsPage = () => {
         <div className="reservation__and__rsvp__button">
           <img className="reservation" src={reservation} alt="reservation" />
           <div>
-            <Button variant="primary" size="lg" href="#rsvp">
-              אישור הגעה
+            <Button variant="secondary" size="lg" href="#rsvp">
+              אישור/ביטול הגעה
             </Button>
           </div>
         </div>
