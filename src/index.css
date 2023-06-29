@@ -9,3 +9,9 @@
 .gridCube {
   flex: 1;
 }
+.heightMargin {
+  height: 10px;
+}
+.widthMargin {
+  width: 10px;
+}
