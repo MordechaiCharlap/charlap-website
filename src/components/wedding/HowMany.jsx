@@ -3,6 +3,7 @@ import { DashCircleFill, PlusCircleFill } from "react-bootstrap-icons";
 
 export const HowMany = (props) => {
   const [numberOfGuests, setNumberOfGuests] = useState(1);
+  const primaryColor = "#0d6efd";
   return (
     <div
       style={{
@@ -23,12 +24,13 @@ export const HowMany = (props) => {
           }}
         >
           <div className="increment__button">
-            <DashCircleFill color="black" size={50} />
+            <DashCircleFill color={primaryColor} size={50} />
           </div>
         </a>
         <div style={{ flex: 1 }}>
           <h1
             style={{
+              color: primaryColor,
               textAlign: "center",
               justifySelf: "center",
               marginTop: "auto",
@@ -48,7 +50,7 @@ export const HowMany = (props) => {
           }}
         >
           <div className="increment__button">
-            <PlusCircleFill color="black" size={50} />
+            <PlusCircleFill color={primaryColor} size={50} />
           </div>
         </a>
       </div>
