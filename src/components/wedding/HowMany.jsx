@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DashCircleFill, PlusCircleFill } from "react-bootstrap-icons";
 
-export const HowMany = () => {
+export const HowMany = (props) => {
   const [numberOfGuests, setNumberOfGuests] = useState(1);
   return (
     <div
@@ -12,20 +12,13 @@ export const HowMany = () => {
     >
       <h3 style={{ textAlign: "center" }}>כמה אתם?</h3>
       <div style={{ height: 10 }} />
-      <div
-        className="how__many"
-        dir="ltr"
-        style={{
-          display: "inline-flex",
-          columnGap: 20,
-          borderRadius: 9999,
-          padding: 10,
-        }}
-      >
+      <div className="how__many" dir="ltr">
         <a
           onClick={() => {
             if (numberOfGuests > 1) {
-              setNumberOfGuests((prev) => prev - 1);
+              const newCount = numberOfGuests - 1;
+              setNumberOfGuests(newCount);
+              props.setGuestCount(newCount);
             }
           }}
         >
@@ -36,6 +29,7 @@ export const HowMany = () => {
         <div style={{ flex: 1 }}>
           <h1
             style={{
+              textAlign: "center",
               justifySelf: "center",
               marginTop: "auto",
               marginBottom: "auto",
@@ -47,7 +41,9 @@ export const HowMany = () => {
         <a
           onClick={() => {
             if (numberOfGuests < 10) {
-              setNumberOfGuests((prev) => prev + 1);
+              const newCount = numberOfGuests + 1;
+              setNumberOfGuests(newCount);
+              props.setGuestCount(newCount);
             }
           }}
         >

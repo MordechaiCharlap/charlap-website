@@ -11,6 +11,11 @@
 }
 .weddingReservationsPage .how__many {
   background-color: var(--color-surface-variant);
+  width: 200px;
+  display: inline-flex;
+  column-gap: 20px;
+  border-radius: 4rem;
+  padding: 10px;
 }
 /* Media queries (lg)*/
 .weddingReservationsPage .container {
