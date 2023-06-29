@@ -1,18 +1,20 @@
 .weddingReservationsPage {
   --color-bg: #ffffff;
   --color-primary: #ffffff;
+  --color-blue: #0d6efd;
   --color-input: #000000;
   --color-on-primary: #ffffff;
   --color-secondary: #3cb2bb;
   --color-outline: #666666;
   --color-surface-variant: #bebebe;
-  --color-surface: #f3f3f3;
+  --color-surface: #dfdfdf;
   --color-danger: #dc3545;
   --color-success: #198754;
   --transition: all 400ms ease;
 }
 .weddingReservationsPage .how__many {
-  background-color: var(--color-surface-variant);
+  border: solid var(--color-surface-variant) 2px;
+  background-color: var(--color-on-primary);
   width: 200px;
   display: inline-flex;
   column-gap: 20px;
@@ -33,7 +35,7 @@
 }
 .weddingReservationsPage .rsvp__form {
   align-items: center;
-  background-color: #dfdfdf;
+  background-color: var(--color-surface);
   border: solid var(--color-outline) 1px;
   padding: 15px;
   border-radius: 5%;
@@ -74,13 +76,15 @@
 }
 .weddingReservationsPage input::placeholder {
   color: var(--color-outline);
+  text-align: center;
 }
 .weddingReservationsPage input {
-  width: 250;
+  width: 350px;
   font-size: x-large;
   padding-right: 5px;
-  border: solid var(--color-input) 2px;
+  border: solid var(--color-surface-variant) 2px;
   color: var(--color-input);
+  text-align: center;
 }
 .weddingReservationsPage .errorInput {
   border: solid var(--color-danger) 2px;
@@ -89,7 +93,6 @@
   width: 100%;
   display: flex;
 }
-
 /* Media queries (md)*/
 @media screen and (max-width: 1024px) {
   .weddingReservationsPage .container {
