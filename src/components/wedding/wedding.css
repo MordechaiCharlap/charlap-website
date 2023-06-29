@@ -7,6 +7,8 @@
   --color-outline: #666666;
   --color-surface-variant: #bebebe;
   --color-surface: #f3f3f3;
+  --color-danger: #dc3545;
+  --color-success: #198754;
   --transition: all 400ms ease;
 }
 .weddingReservationsPage .how__many {
@@ -77,13 +79,17 @@
   width: 250;
   font-size: x-large;
   padding-right: 5px;
-  border: solid var(--color-input) 1px;
+  border: solid var(--color-input) 2px;
   color: var(--color-input);
+}
+.weddingReservationsPage .errorInput {
+  border: solid var(--color-danger) 2px;
 }
 .weddingReservationsPage .coming__or__not {
   width: 100%;
   display: flex;
 }
+
 /* Media queries (md)*/
 @media screen and (max-width: 1024px) {
   .weddingReservationsPage .container {
