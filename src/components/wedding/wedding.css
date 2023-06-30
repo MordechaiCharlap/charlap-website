@@ -15,6 +15,24 @@
 .weddingReservationsPage #rsvp {
   width: 100%;
 }
+.weddingReservationsPage .dropdown-menu {
+  width: 350px;
+}
+.weddingReservationsPage .dropdown-toggle {
+  background-color: var(--color-surface-variant);
+  color: var(--color-outline);
+  font-size: larger;
+  font-weight: 500;
+}
+.weddingReservationsPage .dropdown-filled {
+  background-color: var(--color-blue);
+  color: var(--color-primary);
+}
+.weddingReservationsPage #dropdown-basic-button {
+  width: 350px;
+  padding-right: 5px;
+  border: solid var(--color-surface-variant) 2px;
+}
 .weddingReservationsPage .how__many {
   border: solid var(--color-surface-variant) 2px;
   background-color: var(--color-on-primary);
@@ -24,7 +42,6 @@
   border-radius: 4rem;
   padding: 10px;
 }
-/* Media queries (lg)*/
 .weddingReservationsPage .container {
   padding: 0;
   display: flex;
@@ -42,6 +59,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: var(--transition);
 }
 .weddingReservationsPage .form {
   align-items: center;
@@ -51,12 +69,13 @@
   border-radius: 2rem;
   display: inline-flex;
   flex-direction: column;
+  transition: var(--transition);
 }
 .weddingReservationsPage .wedding__container {
   align-items: center;
 }
 .weddingReservationsPage .reservation {
-  height: 600px;
+  height: 90%;
   object-fit: contain;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -99,6 +118,7 @@
   border: solid var(--color-surface-variant) 2px;
   color: var(--color-input);
   text-align: center;
+  transition: var(--transition);
 }
 .weddingReservationsPage .errorInput {
   border: solid var(--color-danger) 2px;
@@ -110,8 +130,13 @@
     width: 80%;
   }
   .weddingReservationsPage input {
-    font-size: x-large;
     width: 100%;
+  }
+  .weddingReservationsPage #dropdown-basic-button {
+    width: 100%;
+  }
+  .weddingReservationsPage .dropdown-item {
+    width: 100px;
   }
 }
 /* Media queries (sm)*/
@@ -125,6 +150,10 @@
     width: 90%;
     font-size: large;
   }
+  .weddingReservationsPage #dropdown-basic-button {
+    width: 90%;
+    font-size: large;
+  }
   .weddingReservationsPage .fullPage {
     width: 100%;
     padding: 5px;
@@ -134,11 +163,5 @@
     padding: 10px;
     border-radius: 1rem;
     flex-direction: column;
-  }
-  .weddingReservationsPage .reservation {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
 }
