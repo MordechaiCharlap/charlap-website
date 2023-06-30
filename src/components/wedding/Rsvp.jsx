@@ -38,6 +38,15 @@ export const Rsvp = () => {
     if (isComing == null) return;
     if (!checkIfPhoneNumberExists()) submitRsvp();
   }, [isComing]);
+  useEffect(() => {
+    if (side == null) {
+      $("#dropdown-basic-button").addClass("dropdown-not-filled");
+      $("#dropdown-basic-button").removeClass("dropdown-filled");
+    } else {
+      $("#dropdown-basic-button").addClass("dropdown-filled");
+      $("#dropdown-basic-button").removeClass("dropdown-not-filled");
+    }
+  }, [side]);
   const emptyInputColor = "#bebebe";
   const filledInputColor = "white";
   const dropdownItemStyle = {
@@ -174,7 +183,7 @@ export const Rsvp = () => {
       {submitted ? (
         <div className="fullPage align-items-center">
           <h1 dir="rtl" className="text-center">
-            הטופס נשלח ונקלט במערכת, תודה רבה!
+            {`הטופס נשלח ונקלט במערכת, מחכים לראותכם :)`}
           </h1>
           <Button
             href="#wedding-reservation-start"
@@ -198,6 +207,11 @@ export const Rsvp = () => {
         <div dir="rtl" className="fullPage">
           <div className="form">
             <DropdownButton
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
               id="dropdown-basic-button"
               title={side || "בחרו צד"}
             >
