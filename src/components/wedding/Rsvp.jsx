@@ -40,11 +40,11 @@ export const Rsvp = () => {
   }, [isComing]);
   useEffect(() => {
     if (side == null) {
-      $("#dropdown-basic-button").addClass("dropdown-not-filled");
-      $("#dropdown-basic-button").removeClass("dropdown-filled");
+      $("#dropdown-basic-button").toggleClass("dropdown-not-filled");
+      $("#dropdown-basic-button").toggleClass("dropdown-filled");
     } else {
-      $("#dropdown-basic-button").addClass("dropdown-filled");
-      $("#dropdown-basic-button").removeClass("dropdown-not-filled");
+      $("#dropdown-basic-button").toggleClass("dropdown-filled");
+      $("#dropdown-basic-button").toggleClass("dropdown-not-filled");
     }
   }, [side]);
   const emptyInputColor = "#bebebe";
@@ -171,9 +171,9 @@ export const Rsvp = () => {
       guestCount: guestCount,
       isComing: isComing,
     };
-    if (isComing == false) dataClone.submittedComing.push(newRsvp);
-    else dataClone.submittedNotComing.push(newRsvp);
-    console.log(dataClone);
+    isComing
+      ? dataClone.submittedComing.push(newRsvp)
+      : dataClone.submittedNotComing.push(newRsvp);
     updateDoc(doc(db, "wedding/allData"), dataClone);
     setSubmitted(true);
     cleanState();
@@ -212,6 +212,7 @@ export const Rsvp = () => {
                 display: "flex",
                 justifyContent: "center",
               }}
+              className="dropdown-not-filled"
               id="dropdown-basic-button"
               title={side || "בחרו צד"}
             >
