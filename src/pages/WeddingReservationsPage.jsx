@@ -13,8 +13,8 @@ const WeddingReservationsPage = () => {
     >
       <div className="container" style={{}}>
         <div className="fullPage align-items-center">
-          <img className="reservation" src={us} alt="reservation" />
-          <div className="heightMargin" />
+          <img className="reservation bg-warning" src={us} alt="reservation" />
+          <div className="height-margin" />
           <Button variant="secondary" size="lg" href="#rsvp">
             אישור/ביטול הגעה
           </Button>
