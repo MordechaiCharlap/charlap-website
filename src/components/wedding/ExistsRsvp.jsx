@@ -1,7 +1,7 @@
 import React from "react";
 import "./existsRsvp.css";
 import { Button } from "react-bootstrap";
-export const ExistsRsvp = ({ existsRsvp, updateRsvp }) => {
+export const ExistsRsvp = ({ existsRsvp, newRsvp, updateRsvp }) => {
   const gridColumns = [
     ["fullName", "שם מלא"],
     ["guestCount", "כמה אתם"],
@@ -13,6 +13,8 @@ export const ExistsRsvp = ({ existsRsvp, updateRsvp }) => {
       <div className="form">
         <h3>המספר טלפון קיים במערכת, האם אתה רוצה להחליף את הפרטים הישנים?</h3>
         <div style={{ height: 10 }} />
+        <div style={{ height: 10 }} />
+        <p>פרטים ישנים:</p>
         <div className="grid">
           <div className="row">
             {gridColumns.map((columnField, index) => {
