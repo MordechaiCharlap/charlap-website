@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WorkouteerPrivacyPolicyPage from "../pages/WorkouteerPrivacyPolicyPage";
 import HomePage from "../pages/HomePage";
 import WeddingReservationsPage from "../pages/WeddingReservationsPage";
-import { WeddingControlPanel } from "../components/wedding/control-panel/WeddingControlPanel";
+import { WeddingControlPanelPage } from "../pages/WeddingControlPanelPage";
 const App = () => {
   return (
     <BrowserRouter>
@@ -20,7 +20,7 @@ const App = () => {
         />
         <Route
           path="/wedding-control-panel"
-          element={<WeddingControlPanel />}
+          element={<WeddingControlPanelPage />}
         />
       </Routes>
     </BrowserRouter>
