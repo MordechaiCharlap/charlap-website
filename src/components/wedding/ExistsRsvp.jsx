@@ -1,13 +1,8 @@
 import React from "react";
 import "./existsRsvp.css";
 import { Button } from "react-bootstrap";
+import { gridColumns } from "./defaultValues";
 export const ExistsRsvp = ({ existsRsvp, newRsvp, updateRsvp }) => {
-  const gridColumns = [
-    ["fullName", "שם מלא"],
-    ["guestCount", "כמה אתם"],
-    ["isComing", "מגיעים?"],
-    ["side", "צד"],
-  ];
   return (
     <div dir="rtl" id="existsRsvp" className="fullPage">
       <div className="form">
