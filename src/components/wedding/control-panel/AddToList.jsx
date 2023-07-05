@@ -4,7 +4,7 @@ import { Button, DropdownButton } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import $ from "jquery";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
-export const AddToList = ({ sides, db, setNeedUpdate }) => {
+export const AddToList = ({ sides, db }) => {
   const [fullName, setFullName] = useState("");
   const [guestCount, setGuestCount] = useState(0);
   const [isComing, setIsComing] = useState(false);
@@ -41,7 +41,7 @@ export const AddToList = ({ sides, db, setNeedUpdate }) => {
     const newValue = {
       fullName: fullName,
       guestCount: guestCount,
-      isComing: isComing,
+      isComing: isComing == true ? "yes" : isComing == false ? "no" : "maybe",
       side: side,
     };
 
@@ -50,7 +50,6 @@ export const AddToList = ({ sides, db, setNeedUpdate }) => {
     await updateDoc(doc(db, "wedding/allData"), {
       guestList: arrayUnion(newValue),
     });
-    setNeedUpdate(true);
   };
   return (
     <div className="bg-secondary rounded m-5 p-5">
@@ -89,13 +88,41 @@ export const AddToList = ({ sides, db, setNeedUpdate }) => {
               />
             </th>
             <th className="border text-center">
-              <input
-                checked={isComing}
-                onChange={(e) => setIsComing(e.target.checked)}
-                type="checkbox"
-                className="rounded"
-                style={{ height: 30, width: 30 }}
-              />
+              <DropdownButton
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+                className="dropdown-not-filled"
+                id="dropdown-basic-button"
+                title={
+                  isComing == true
+                    ? "כן"
+                    : isComing == false
+                    ? "לא"
+                    : "לא ידוע עדיין"
+                }
+              >
+                <Dropdown.Item
+                  style={dropdownItemStyle}
+                  onClick={() => setIsComing(true)}
+                >
+                  כן
+                </Dropdown.Item>
+                <Dropdown.Item
+                  style={dropdownItemStyle}
+                  onClick={() => setIsComing(false)}
+                >
+                  לא
+                </Dropdown.Item>
+                <Dropdown.Item
+                  style={dropdownItemStyle}
+                  onClick={() => setIsComing()}
+                >
+                  לא ידוע עדיין
+                </Dropdown.Item>
+              </DropdownButton>
             </th>
             <th className="border text-center">
               <DropdownButton
