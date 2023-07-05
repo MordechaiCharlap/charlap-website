@@ -8,6 +8,7 @@ import { Dropdown } from "react-bootstrap";
 export const ListTable = ({ db, currentList, weddingData }) => {
   const [comingCount, setComingCount] = useState(0);
   const [notComingCount, setNotComingCount] = useState(0);
+  const [maybeComingCount, setMaybeComingCount] = useState(0);
   const [shownArray, setShownArray] = useState(weddingData[currentList]);
   const [sortMethod, setSortMethod] = useState();
   const [sortMethodName, setSortMethodName] = useState();
@@ -18,19 +19,20 @@ export const ListTable = ({ db, currentList, weddingData }) => {
 
   useEffect(() => {
     const updatedArray = weddingData[currentList];
-    console.log("updated: " + updatedArray.length);
     setShownArray(updatedArray);
-    var tempComing = 0;
-    var tempNotComing = 0;
+    var tempComing = 0,
+      tempNotComing = 0,
+      tempMaybeComing = 0;
     updatedArray.forEach((rsvp) => {
       if (rsvp.isComing == "yes") {
         tempComing += rsvp.guestCount;
       } else if (rsvp.isComing == "no") {
         tempNotComing += rsvp.guestCount;
-      }
+      } else tempMaybeComing += rsvp.guestCount;
     });
     setComingCount(tempComing);
     setNotComingCount(tempNotComing);
+    setMaybeComingCount(tempMaybeComing);
   }, [weddingData]);
   const deleteFromList = async (index) => {
     const listClone = shownArray.slice();
@@ -82,6 +84,7 @@ export const ListTable = ({ db, currentList, weddingData }) => {
           <div className="d-flex">
             <h3>מגיעים: {comingCount}</h3>
             <h3>לא מגיעים: {notComingCount}</h3>
+            <h3>סימן שאלה: {maybeComingCount}</h3>
           </div>
           <AddToList db={db} sides={weddingData.sides} />
         </div>
