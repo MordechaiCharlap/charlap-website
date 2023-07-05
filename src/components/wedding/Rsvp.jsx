@@ -50,7 +50,7 @@ export const Rsvp = () => {
   const emptyInputColor = "#bebebe";
   const filledInputColor = "white";
   const dropdownItemStyle = {
-    width: 200,
+    width: "100%",
     textAlign: "center",
   };
 
@@ -169,7 +169,7 @@ export const Rsvp = () => {
       fullName: fullName,
       side: side,
       guestCount: guestCount,
-      isComing: isComing,
+      isComing: isComing == true ? "yes" : "no",
     };
     isComing
       ? dataClone.submittedComing.push(newRsvp)
