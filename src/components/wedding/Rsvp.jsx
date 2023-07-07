@@ -107,13 +107,13 @@ export const Rsvp = () => {
   };
   const submitComing = () => {
     if (validateInputs()) {
-      setIsComing(true);
+      setIsComing("yes");
     }
   };
   const submitNotComing = () => {
     if (validateInputs()) {
       console.log("setting coming to false");
-      setIsComing(false);
+      setIsComing("no");
     }
   };
   const sideChanged = (sideChange) => {
