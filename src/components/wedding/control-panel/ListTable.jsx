@@ -5,6 +5,8 @@ import { gridColumns } from "../defaultValues";
 import { Button, DropdownButton } from "react-bootstrap";
 import $ from "jquery";
 import { Dropdown } from "react-bootstrap";
+import { PenFill, X } from "react-bootstrap-icons";
+import { EditingLine } from "./EditingLine";
 export const ListTable = ({ db, currentList, weddingData }) => {
   const [comingCount, setComingCount] = useState(0);
   const [notComingCount, setNotComingCount] = useState(0);
@@ -12,6 +14,7 @@ export const ListTable = ({ db, currentList, weddingData }) => {
   const [shownArray, setShownArray] = useState(weddingData[currentList]);
   const [sortMethod, setSortMethod] = useState();
   const [sortMethodName, setSortMethodName] = useState();
+  const [editingLine, setEditingLine] = useState();
   useEffect(() => {
     if (sortMethod == "isComing") isComingSort();
     if (sortMethod == "side") sideSort();
@@ -76,7 +79,18 @@ export const ListTable = ({ db, currentList, weddingData }) => {
     setShownArray(listClone);
     setSortMethodName("צד");
   };
+  const editRow = (rsvpIndex) => {
+    setEditingLine(rsvpIndex);
+  };
 
+  const finishEditRow = async (newRsvp) => {
+    const listClone = shownArray.slice();
+    listClone[editingLine] = newRsvp;
+    await updateDoc(doc(db, "wedding/allData"), {
+      guestList: listClone,
+    });
+    setEditingLine();
+  };
   return (
     <div dir="rtl">
       {currentList == "guestList" ? (
@@ -127,7 +141,7 @@ export const ListTable = ({ db, currentList, weddingData }) => {
         </thead>
         <tbody>
           {shownArray.map((rsvp, index) => {
-            return (
+            return editingLine != index ? (
               <tr key={`${currentList}/${index}`}>
                 {gridColumns.map((colName, index) => {
                   return (
@@ -143,16 +157,37 @@ export const ListTable = ({ db, currentList, weddingData }) => {
                   );
                 })}
                 <th className="text-center">
-                  <Button
-                    className="btn-danger"
-                    onClick={async () => {
-                      await deleteFromList(index);
-                    }}
-                  >
-                    X
-                  </Button>
+                  <div>
+                    <Button
+                      className={`btn-danger p-1 ${
+                        editingLine ? "disabled" : ""
+                      }`}
+                      onClick={async () => {
+                        await deleteFromList(index);
+                      }}
+                    >
+                      <X size={30} />
+                    </Button>
+                    <Button
+                      className={`btn-info p-1 ${
+                        editingLine ? "disabled" : ""
+                      }`}
+                      onClick={() => {
+                        editRow(index);
+                      }}
+                    >
+                      <PenFill size={30} />
+                    </Button>
+                  </div>
                 </th>
               </tr>
+            ) : (
+              <EditingLine
+                key={`${currentList}/${index}`}
+                sides={weddingData.sides}
+                currentDetails={shownArray[index]}
+                finishEditRow={finishEditRow}
+              />
             );
           })}
         </tbody>
