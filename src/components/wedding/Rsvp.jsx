@@ -39,12 +39,8 @@ export const Rsvp = () => {
     if (!checkIfPhoneNumberExists()) submitRsvp();
   }, [isComing]);
   useEffect(() => {
-    if (side == null) {
-      $("#dropdown-basic-button").toggleClass("dropdown-not-filled");
-      $("#dropdown-basic-button").toggleClass("dropdown-filled");
-    } else {
-      $("#dropdown-basic-button").toggleClass("dropdown-filled");
-      $("#dropdown-basic-button").toggleClass("dropdown-not-filled");
+    if (side != null) {
+      $("#dropdown-basic-button").addClass("dropdown-filled");
     }
   }, [side]);
   const emptyInputColor = "#bebebe";
@@ -68,7 +64,7 @@ export const Rsvp = () => {
   const fullNameChanged = (text) => {
     setFullName(text);
     if (text != "") {
-      $(".fullNameInput").removeClass("errorInput");
+      $(".fullNameInput").removeClass("error-input");
     }
   };
   const phoneNumberChanged = (text) => {
@@ -79,13 +75,13 @@ export const Rsvp = () => {
       setPhoneNumber(text);
     }
     if (text != "") {
-      $(".phoneNumberInput").removeClass("errorInput");
+      $(".phoneNumberInput").removeClass("error-input");
     }
   };
   const validateInputs = () => {
     var isValid = true;
     if (fullName === "") {
-      $(".fullNameInput").addClass("errorInput");
+      $(".fullNameInput").addClass("error-input");
       isValid = false;
     }
     const validPhoneNumberRegex = /^\d{10}$/;
@@ -96,11 +92,13 @@ export const Rsvp = () => {
       !validInternationalRegex.test(phoneNumber) ||
       !validPhoneNumberRegex.test(phoneNumber)
     ) {
-      $(".phoneNumberInput").addClass("errorInput");
+      $(".phoneNumberInput").addClass("error-input");
       isValid = false;
     }
     if (!side) {
-      $("#dropdown-basic-button").addClass("errorInput");
+      console.log("dropdown error");
+      $(".dropdown-toggle").addClass("error-input");
+      $(".dropdown-toggle").removeClass("dropdown-filled");
       isValid = false;
     }
     return isValid;
@@ -119,7 +117,7 @@ export const Rsvp = () => {
   const sideChanged = (sideChange) => {
     setSide(sideChange);
     if (sideChange) {
-      $("#dropdown-basic-button").removeClass("errorInput");
+      $("#dropdown-basic-button").removeClass("error-input");
     }
   };
   const updateRsvp = (update) => {
@@ -169,9 +167,9 @@ export const Rsvp = () => {
       fullName: fullName,
       side: side,
       guestCount: guestCount,
-      isComing: isComing == true ? "yes" : "no",
+      isComing: isComing == "yes" ? "yes" : "no",
     };
-    isComing
+    isComing == "yes"
       ? dataClone.submittedComing.push(newRsvp)
       : dataClone.submittedNotComing.push(newRsvp);
     updateDoc(doc(db, "wedding/allData"), dataClone);
@@ -207,6 +205,7 @@ export const Rsvp = () => {
         <div dir="rtl" className="fullPage">
           <div className="form">
             <DropdownButton
+              color="black"
               style={{
                 width: "100%",
                 display: "flex",
