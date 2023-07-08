@@ -21,17 +21,18 @@
 .weddingReservationsPage .dropdown-toggle {
   background-color: var(--color-surface-variant);
   color: var(--color-outline);
+  border: solid var(--color-surface-variant) 2px;
   font-size: larger;
   font-weight: 500;
 }
 .weddingReservationsPage .dropdown-filled {
   background-color: var(--color-primary);
+  border: solid var(--color-surface-variant) 2px;
   color: var(--color-input);
 }
 .weddingReservationsPage #dropdown-basic-button {
   width: 350px;
   padding-right: 5px;
-  border: solid var(--color-surface-variant) 2px;
 }
 .weddingReservationsPage .how__many {
   border: solid var(--color-surface-variant) 2px;
@@ -121,7 +122,7 @@
   text-align: center;
   transition: var(--transition);
 }
-.weddingReservationsPage .errorInput {
+.weddingReservationsPage .error-input {
   border: solid var(--color-danger) 2px;
 }
 
